@@ -1,5 +1,5 @@
 {
-  "name": "web-dev-starter",
+  "name": "browser-dashboard",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,22 +10,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adamwojnicki/web-dev-starter.git"
+    "url": "git+https://github.com/adamwojnicki/browser-dashboard.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adamwojnicki/web-dev-starter/issues"
+    "url": "https://github.com/adamwojnicki/browser-dashboard/issues"
   },
-  "homepage": "https://github.com/adamwojnicki/web-dev-starter#readme",
+  "homepage": "https://github.com/adamwojnicki/browser-dashboard#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
     "babel-preset-env": "^1.7.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.9.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-eslint": "^1.0.8-2",
     "prettier": "^1.19.1",
