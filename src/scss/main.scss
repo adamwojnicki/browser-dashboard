@@ -1,58 +1,149 @@
-// Add your styles here
+@import "./fonts-colors.scss";
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-
-$background-grey: #eeeeee;
-$background-lime: #a6df20;
-$font-color: #333333;
-
-* {
+*,
+html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  min-width: 100%;
-  min-height: 100vh;
-  background: $background-grey;
-  font-family: "Montserrat", Arial, sans-serif;
-  color: $font-color;
+  font-family: $font-stack;
+  background: url(../assets/img/BACKGROUND.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
-header {
+input:focus,
+button:focus {
+  outline: none;
+}
+
+.app-container {
   width: 100%;
-  text-align: center;
-  background: $background-lime;
-  h1 {
-    padding: 25px;
-    font-size: 2.5rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard {
+  width: 1000px;
+  &__greeting {
+    padding-bottom: 12px;
+    font-size: 72px;
+    color: $dark-grey;
+  }
+  &__grid {
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 20% auto;
   }
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 50px;
-  max-width: 1440px;
-  margin: 100px auto;
-  div {
-    flex: 1;
-    img {
+.dashboard__element {
+  background: rgba($dark-grey, 0.8);
+  color: $light-grey;
+}
+
+.dashboard__weather {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  &__city {
+    font-size: 48px;
+    padding-top: 24px;
+    text-align: center;
+  }
+  &__icon {
+    padding-top: 12px;
+    display: block;
+    margin: auto;
+  }
+  &__temp {
+    padding-top: 12px;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__desc {
+    padding: 12px 0 24px 0;
+    font-size: 36px;
+    text-align: center;
+  }
+}
+
+.dashboard__time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+}
+
+.dashboard__todolist {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  position: relative;
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    border: 2px solid $light-grey;
+    padding: 5px;
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked {
+    background: $light-grey;
+  }
+
+  input[type="checkbox"]:checked:after {
+    content: "\2714";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $dark-grey;
+    font-weight: bold;
+  }
+  &__heading {
+    padding: 24px 12px;
+    h3 {
+      padding-bottom: 12px;
+    }
+    input[type="text"] {
+      color: $light-grey;
       width: 100%;
+      padding: 7px 5px;
+      border: none;
+      font-size: 16px;
+      background: rgba($dark-grey, 0.8);
+    }
+    input[type="text"]::placeholder {
+      color: #dedede;
     }
   }
-  .right {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    h3 {
-      font-size: 2rem;
-      margin-bottom: 32px;
+  .todolist__itemlist {
+    padding: 0 12px;
+    list-style: none;
+    &__item {
+      font-size: 18px;
+      padding-bottom: 8px;
     }
-    h4 {
-      font-size: 1.5rem;
-    }
+  }
+  .todolist__seeall {
+    position: absolute;
+    bottom: 24px;
+    left: 12px;
+    width: 30%;
+    padding: 7px;
+    border: 0;
+    border-radius: 0;
+    background: rgba($dark-grey, 0.8);
+    color: $light-grey;
+    font-size: 16px;
+  }
+  .todolist__seeall:hover {
+    cursor: pointer;
+    background: rgba($dark-grey, 1);
   }
 }
