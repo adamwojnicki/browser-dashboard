@@ -37,7 +37,5 @@
     "prettier": "^1.19.1",
     "sass": "^1.24.3"
   },
-  "dependencies": {
-    "dotenv": "^8.2.0"
-  }
+  "dependencies": {}
 }

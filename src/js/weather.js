@@ -1,8 +1,29 @@
-import "dotenv";
 export const weather = () => {
-  const apiKey = "";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=Warsaw,PL&appid=${apiKey}`;
+  const apiKey = "bc00e5048c4952dbd95841202e785eab";
+  const city = "Warsaw";
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
   fetch(url)
     .then(resp => resp.json())
-    .then(data => console.log(data));
+    .then(data => weatherUI(data))
+    .catch(e => {
+      const dashboardWeather = document.querySelector(".dashboard__weather");
+      dashboardWeather.innerHTML = e;
+      console.log(`Something went wrong with fetching data: ${e}`);
+    });
+};
+
+const weatherUI = data => {
+  const weatherData = data;
+  console.log(weatherData);
+
+  const locationUI = document.querySelector(".dashboard__weather__city");
+  const iconUI = document.querySelector(".dashboard__weather__icon");
+  const tempUI = document.querySelector(".dashboard__weather__temp");
+  const descUI = document.querySelector(".dashboard__weather__desc");
+
+  locationUI.innerHTML = `${weatherData.name}, ${weatherData.sys.country}`;
+  iconUI.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
+  tempUI.innerHTML = `${weatherData.main.temp}&deg C`;
+  descUI.innerHTML = weatherData.weather[0].description;
 };
