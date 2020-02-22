@@ -1,7 +1,7 @@
 export const weather = () => {
   const apiKey = "bc00e5048c4952dbd95841202e785eab";
   const city = "Warsaw";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   fetch(url)
     .then(resp => resp.json())
@@ -21,8 +21,10 @@ const weatherUI = data => {
   const tempUI = document.querySelector(".dashboard__weather__temp");
   const descUI = document.querySelector(".dashboard__weather__desc");
 
+  const roundTemp = Math.floor(weatherData.main.temp);
+
   cityUI.innerHTML = `${weatherData.name}, ${weatherData.sys.country}`;
   iconUI.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
-  tempUI.innerHTML = `${weatherData.main.temp}&deg C`;
+  tempUI.innerHTML = `${roundTemp}&deg C`;
   descUI.innerHTML = weatherData.weather[0].main;
 };
