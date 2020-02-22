@@ -33,6 +33,10 @@ button:focus {
     padding-bottom: 12px;
     font-size: 72px;
     color: $dark-grey;
+    pointer-events: none;
+    &__username {
+      pointer-events: all;
+    }
   }
   &__grid {
     display: grid;
