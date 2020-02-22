@@ -15,15 +15,14 @@ export const weather = () => {
 
 const weatherUI = data => {
   const weatherData = data;
-  console.log(weatherData);
 
-  const locationUI = document.querySelector(".dashboard__weather__city");
+  const cityUI = document.querySelector(".dashboard__weather__city");
   const iconUI = document.querySelector(".dashboard__weather__icon");
   const tempUI = document.querySelector(".dashboard__weather__temp");
   const descUI = document.querySelector(".dashboard__weather__desc");
 
-  locationUI.innerHTML = `${weatherData.name}, ${weatherData.sys.country}`;
+  cityUI.innerHTML = `${weatherData.name}, ${weatherData.sys.country}`;
   iconUI.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
   tempUI.innerHTML = `${weatherData.main.temp}&deg C`;
-  descUI.innerHTML = weatherData.weather[0].description;
+  descUI.innerHTML = weatherData.weather[0].main;
 };
